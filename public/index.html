@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRABI - The App for Effortless Navigation</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        /* Custom scroll behavior for smooth navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-70 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-bold text-teal-400">TRABI</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-300">Features</a>
+                <a href="#cta" class="text-gray-300 hover:text-white transition-colors duration-300">Download</a>
+            </div>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-lg py-2">
+            <a href="#features" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 transition-colors duration-300">Features</a>
+            <a href="#cta" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 transition-colors duration-300">Download</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-16 pb-24 text-center">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 opacity-90 -z-10"></div>
+        <div class="relative z-10 container mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4">
+                Track, Analyze, <span class="text-teal-400">and Improve</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                TRABI helps you monitor your routes, analyze your performance, and achieve your fitness goals with powerful analytics.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://apps.apple.com/en/app/trabi-sport-everything-else/id6751028521" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Download on the App Store
+                </a>
+                <button class="bg-gray-700 hover:bg-gray-600 text-gray-200 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-16">Packed with Power</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Feature 1: Detailed Activity Tracking -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-gray-700 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity text-teal-400"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Detailed Activity Tracking</h3>
+                    <p class="text-gray-400">
+                        Record every detail of your run, hike, or bike ride, including distance, pace, elevation, and calories burned.
+                    </p>
+                </div>
+                <!-- Feature 2: Performance Analytics -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-gray-700 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up text-teal-400"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Performance Analytics</h3>
+                    <p class="text-gray-400">
+                        Visualize your progress with custom charts and graphs, set new goals, and compare your performance over time.
+                    </p>
+                </div>
+                <!-- Feature 3: Export & Notes -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-gray-700 w-16 h-16 flex items-center justify-center rounded-full mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L15.5 2z"/><path d="M14 2v6h6"/><path d="M10 12H8"/><path d="M16 16H8"/><path d="M16 20H8"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Export & Notes</h3>
+                    <p class="text-gray-400">
+                        Export your routes in a variety of formats and add notes with specific location details to remember key moments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Improve?</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                Start tracking your progress and understanding your performance. Download TRABI today.
+            </p>
+            <a href="https://apps.apple.com/en/app/trabi-sport-everything-else/id6751028521" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                Download Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <div class="flex space-x-4 mb-4">
+                <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-4.8 1.4-6.8 2.2c-2.4-.3-4.5-.4-6.4 1.3C7.4 8 7 9.8 7 11.7c0 2.2 1.3 4.2 3.4 5.4-2.8 1.5-6.5-.4-9.3-3 1.8 0 3.6-.5 5.2-1.5-1.4 0-2.8-.7-3.9-1.9-.3-.5-.5-1-.6-1.6.4 0 .9.1 1.3.3C4.5 12 3 11 3 9.4c0-.5.2-1.1.5-1.5.8 1.3 2.1 2.5 3.7 3.3-1.6-.2-3.1-.7-4.4-1.6C4.8 5.7 6.4 5 8 5.4c-2.3-1.6-4.6-2.2-6.5-1.9.4.9 1.4 1.5 2.6 1.8 1.6.5 3.3.7 5-.2.9-1 1.5-2 1.8-3.3.4-1.3-.4-2.7-1.7-3.4 0 0 0 0 0 0L4 0c-1.4 1.4-2.6 2.9-3.7 4.6l.4.1C1.8 5.2 2.9 6 4.1 6.3c1.7.5 3.4.6 5.1-.2 1-1.3 1.6-2.6 1.9-4.2.3-1.5-.4-3.1-1.6-4.2C7 0 5.4 0 4 0h-.2l.1.3c.4.6.6 1.3.6 2s-.1 1.4-.4 2.1c-.3.8-.8 1.4-1.5 2-1.4 1.3-3 2.3-4.8 2.8-.3 0-.6.1-.9.1.5.7 1.2 1.2 2 1.6 1.3.7 2.8 1.1 4.2 1.1 1.2 0 2.3-.2 3.4-.6 1.4-.6 2.6-1.5 3.7-2.6.9-.9 1.6-2 2.1-3.2.5-1.2.7-2.5.6-3.8.3.1.6.2.9.2 1.5 0 2.9-.6 4-1.6 1.1-.9 1.9-2.2 2.4-3.7.6-1.5.7-3.2.1-4.8-.5-1.6-1.6-3-3-4z"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-6.79 3.21 4 4 0 0 1 6.79-3.21Z"/><line x1="22" x2="22" y1="6" y2="6"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 TRABI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for smooth scrolling and mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Toggle mobile menu visibility
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
