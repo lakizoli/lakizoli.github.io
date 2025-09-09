@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRABI - Help Center</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a1a;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .screenshot {
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-height: 500px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900 bg-opacity-70 backdrop-blur-md shadow-md">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-teal-400">TRABI</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html#features" class="text-gray-300 hover:text-white transition-colors duration-300">Features</a>
+                <a href="help.html" class="text-white font-bold transition-colors duration-300">Help</a>
+                <a href="index.html#cta" class="text-gray-300 hover:text-white transition-colors duration-300">Download</a>
+            </div>
+
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-lg py-2">
+            <a href="index.html#features" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 transition-colors duration-300">Features</a>
+            <a href="help.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 transition-colors duration-300">Help</a>
+            <a href="index.html#cta" class="block px-4 py-2 text-gray-300 hover:bg-gray-800 transition-colors duration-300">Download</a>
+        </div>
+    </header>
+
+    <!-- Help Content Section -->
+    <main class="container mx-auto px-4 py-16">
+        <h1 class="text-5xl font-extrabold text-center text-white mb-12">Help Center</h1>
+        
+        <div class="space-y-16">
+
+            <!-- Help Item: Activity Feed -->
+            <div class="flex flex-col md:flex-row items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Your Activity Feed</h2>
+                    <p class="text-gray-300 mb-4">The main screen shows your current stats and the map around your route.</p>
+                    <p class="text-gray-300">Ready to go? From the main screen, tap the "Start recording" button on the upper left and you're all set to begin tracking your next adventure.</p>
+                </div>
+                <div class="md:w-1/2 p-4 flex justify-center">
+                    <img src="screen2.png" alt="Activity Feed Screenshot" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Help Item: History -->
+            <div class="flex flex-col md:flex-row-reverse items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Browse Your History</h2>
+                    <p class="text-gray-300 mb-4">Tap on the "History" tab to view a comprehensive list of all your recorded activities. This organized view allows you to quickly find and revisit any past workout.</p>
+					<p class="text-gray-300">Tap on one of your past workouts to see more details.</p>
+                </div>
+                <div class="md:w-1/2 p-4 flex justify-center">
+                    <img src="screen3a.png" alt="History Screenshot" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Help Item: Detailed View -->
+            <div class="flex flex-col items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="w-full p-4 text-center">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Analyze Your Performance</h2>
+                    <p class="text-gray-300 max-w-4xl mx-auto">Select any activity to see a detailed breakdown. This view includes an interactive map of your route, precise statistics like pace and elevation on map and in chart form.</p>
+                </div>
+                <div class="w-full p-4 flex flex-col md:flex-row justify-center items-center gap-4">
+                    <img src="screen3b.png" alt="Analyze performance screen" class="screenshot md:w-1/4">
+                    <img src="screen4.png" alt="Analyze performance screen" class="screenshot md:w-1/4">
+                    <img src="screen5.png" alt="Analyze performance screen" class="screenshot md:w-1/4">
+                    <img src="screen6.png" alt="Analyze performance screen" class="screenshot md:w-1/4">
+                </div>
+            </div>
+
+            <!-- Help Item: Settings -->
+            <div class="flex flex-col md:flex-row items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4 flex flex-col md:flex-row justify-center items-center gap-4">
+                    <img src="screen11.png" alt="Settings - Health App Sync" class="screenshot w-full md:w-1/2">
+                    <img src="screen12.png" alt="Settings - Workout Type" class="screenshot w-full md:w-1/2">
+                </div>
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Customize Your Experience</h2>
+                    <p class="text-gray-300">Access the "Settings" menu to customize the app to your liking. You can manage your profile, connect other services, and adjust tracking preferences. Please note that for activities to be synchronized with the Health app, you must select a default workout type. This feature is available with a premium subscription.</p>
+                </div>
+            </div>
+
+            <!-- Help Item: View and Edit Notes -->
+            <div class="flex flex-col md:flex-row items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">View and Edit Your Notes</h2>
+                    <p class="text-gray-300">
+                        You can read any of your previously captured notes by tapping on them in the Notes list. This screen displays one of your notes. To edit it, simply tap the pencil icon 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil inline-block align-text-bottom"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                        in the upper right corner. You can also export your note by tapping the share button 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-square inline-block align-text-bottom"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg>
+                        .
+                    </p>
+                </div>
+                <div class="md:w-1/2 p-4 flex justify-center">
+                    <img src="screen8.png" alt="View Note Screenshot" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Help Item: Create and Edit Notes -->
+            <div class="flex flex-col md:flex-row-reverse items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Create and Edit Notes</h2>
+                    <p class="text-gray-300 mb-4">You can create a new note by tapping the plus button in the upper-left corner of the notes list or by tapping directly on the map on the main activity feed.</p>
+                    <p class="text-gray-300 mb-4">The note editor allows you to include 
+                        text <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-plus-2 inline-block align-text-bottom"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><path d="M14 2v6h6"/><path d="M3 15h6"/><path d="M6 12v6"/></svg>, 
+                        audio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic inline-block align-text-bottom"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="23"/><line x1="8" x2="16" y1="23"/></svg>, 
+                        photos <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera inline-block align-text-bottom"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>, 
+                        and videos <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cassette-tape inline-block align-text-bottom"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M6 15h12"/><circle cx="8.5" cy="11.5" r="1.5"/><circle cx="15.5" cy="11.5" r="1.5"/></svg> 
+                        to capture every important moment of your journey.</p>
+					<p class="text-gray-300">You can also name every note you create by tapping the "Untagged" text in the upper area.</p>
+                </div>
+                <div class="md:w-1/2 p-4 flex justify-center">
+                    <img src="screen9.png" alt="Note Editor Screenshot" class="screenshot">
+                </div>
+            </div>
+
+            <!-- Help Item: Share -->
+            <div class="flex flex-col md:flex-row items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Share Your Achievements</h2>
+                    <p class="text-gray-300">Proud of a recent accomplishment? Share your activity details with friends and family directly from the app. You can export your routes and notes in various formats.</p>
+                </div>
+                <div class="md:w-1/2 p-4 flex justify-center">
+                    <img src="screen7.png" alt="Settings Screenshot" class="screenshot md:w-1/2">
+                    <img src="screen10.png" alt="Share Screenshot" class="screenshot md:w-1/2">
+                </div>
+            </div>
+
+            <!-- Help Item: Premium Subscription -->
+            <div class="flex flex-col md:flex-row-reverse items-center bg-gray-800 rounded-xl shadow-lg p-8">
+                <div class="md:w-1/2 p-4">
+                    <h2 class="text-3xl font-bold text-teal-400 mb-4">Unlock Premium Features</h2>
+                    <p class="text-gray-300">Upgrade to premium to unlock advanced features like Health app synchronization. Visit the store to subscribe. After a successful subscription, you'll see a confirmation screen, and all premium features will be available to you.</p>
+                </div>
+                <div class="md:w-1/2 p-4 flex flex-col md:flex-row justify-center items-center gap-4">
+                    <img src="screen13.png" alt="Premium Store Screenshot" class="screenshot w-1/2">
+                    <img src="screen14.png" alt="Subscription Confirmation Screenshot" class="screenshot w-1/2">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">&copy; 2025 TRABI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
