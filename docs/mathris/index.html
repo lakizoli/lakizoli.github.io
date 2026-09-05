@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathris: Sum & Match — A Mental Math Survival Game</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: rgba(22, 27, 34, 0.85);
+            --panel-border: #30363d;
+            --accent-blue: #38bdf8;
+            --accent-orange: #fb923c;
+            --accent-green: #4ade80;
+            --accent-yellow: #facc15;
+            --accent-red: #ef4444;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--panel-border);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .badge-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--panel-border);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+            font-weight: 600;
+        }
+
+        /* Custom App Store Button */
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 12px;
+            border: 1px solid #a6a6a6;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+        }
+
+        .app-store-btn:hover {
+            transform: scale(1.05);
+            border-color: #fff;
+        }
+
+        .app-store-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        .app-store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .app-store-small {
+            font-size: 10px;
+            margin-bottom: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        .app-store-large {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+        }
+
+        /* Interactive Graphic Illustrations */
+        .illustration-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .game-mockup {
+            background: #151821;
+            border: 2px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            width: 280px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .mockup-header {
+            text-align: center;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .grid-visual {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            background: #090b10;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(0,0,0,0.4);
+        }
+
+        .cell.blue { background: #0284c7; color: white; }
+        .cell.orange { background: #ea580c; color: white; }
+        .cell.green { background: #16a34a; color: white; }
+        .cell.yellow { background: #ca8a04; color: white; }
+        .cell.active { 
+            border: 2px solid #fff; 
+            box-shadow: 0 0 12px var(--accent-yellow);
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.98); }
+            100% { transform: scale(1.05); }
+        }
+
+        .target-callout {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #eab308;
+            color: #000;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.6);
+            border: 3px solid #fff;
+        }
+
+        /* Content Panels */
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-blue);
+        }
+
+        .panel.warning h2 {
+            color: var(--accent-red);
+        }
+
+        .panel p {
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .panel ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .panel ul li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Features List */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .feature-card h3 {
+            color: var(--accent-orange);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid var(--panel-border);
+            padding-top: 2rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            font-style: italic;
+            margin-top: 1.5rem;
+            color: #6e7681;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="app_icon.jpg" alt="Mathris App Icon" class="app-icon">
+        <h1>Mathris: Sum & Match</h1>
+        <p class="subtitle">The ultimate test of speed, strategy, and sheer numbers.</p>
+        
+        <div class="badge-bar">
+            <span class="pill">🔥 Cranking difficulty to 11</span>
+            <span class="pill">🧠 Zero luck involved</span>
+            <span class="pill">👑 Global Top 3</span>
+        </div>
+
+        <a href="#" class="app-store-btn" onclick="alert('Coming soon to the App Store!'); return false;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83"/><path d="M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+            <div class="app-store-text">
+                <span class="app-store-small">Download on the</span>
+                <span class="app-store-large">App Store</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="illustration-container">
+        <div class="game-mockup">
+            <div class="target-callout">18</div>
+            <div class="mockup-header">MATHRIS 2000</div>
+            <div class="grid-visual">
+                <div class="cell blue">3</div>
+                <div class="cell blue">5</div>
+                <div class="cell green">1</div>
+                <div class="cell yellow">2</div>
+                <div class="cell orange active">6</div>
+                <div class="cell blue active">4</div>
+                <div class="cell green active">5</div>
+                <div class="cell orange active">3</div>
+                <div class="cell orange">8</div>
+                <div class="cell orange">2</div>
+                <div class="cell orange">9</div>
+                <div class="cell green">7</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="panel warning">
+        <h2>⚠️ WARNING: THIS IS NOT YOUR AVERAGE PUZZLE GAME!</h2>
+        <p>Love classic block-falling games? Good at mental math? What happens if you fuse them together, crank the difficulty up to eleven, and challenge your brain to a real duel?</p>
+        <p>Welcome to <strong>Mathris: Sum & Match</strong>. It's simple to learn, but devilishly hard to master.</p>
+    </section>
+
+    <section class="panel">
+        <h2>⚡ How It Works</h2>
+        <p>Blocks are dropping from the top. The grid is packed with numbers. Your mission? Find the exact spot on the board where the covered cells sum up to the target number.</p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>⭐ The Star</h3>
+                <p>Panicking? Use the star hint to instantly reveal where you can find appropriate sums on the field.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💣 The Bomb</h3>
+                <p>Blow up cells upon touch for 3 seconds to clear out problematic numbers and reset your layout.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧽 The Sponge</h3>
+                <p>Swipe the field for 3 seconds to wipe out messy areas and clean the slate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>🏆 Are You Among the Top 3 in the World?</h2>
+        <p>Think you're fast? Prove it on the global stage across 3 distinct difficulty modes. Tailored for casual warm-ups or pure, unforgiving punishment.</p>
+        <p>The world tracks <strong>only the ultimate top 3 players</strong> for each difficulty. Can you claim a crown and secure your place among the legends?</p>
+        
+        <hr style="border: none; border-top: 1px solid var(--panel-border); margin: 2rem 0;">
+
+        <h3>Why You'll Be Hooked:</h3>
+        <ul>
+            <li><strong>Pure Adrenaline & IQ Test:</strong> Fast falling-block action meets real-time math.</li>
+            <li><strong>100% Skill-Based:</strong> Zero luck involved. Just you, gravity, and mental math.</li>
+            <li><strong>Ultimate Satisfaction:</strong> Hitting a complex, last-second target feels amazing.</li>
+            <li><strong>Brain Gym on Steroids:</strong> Keeps your mind sharp while keeping you on edge.</li>
+        </ul>
+
+        <h3 style="margin-top: 2rem;">Who is this for?</h3>
+        <ul>
+            <li>Gamers who think modern puzzle games are way too easy.</li>
+            <li>Hardcore puzzle lovers who crave a genuine, punishing challenge.</li>
+            <li>Anyone looking to prove their quick-math skills under pressure.</li>
+        </ul>
+
+        <p style="margin-top: 1.5rem; font-weight: 600; color: var(--accent-orange);">Think you've got what it takes? Download now and find out: will your logic prevail, or will gravity take over?</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Mathris: Sum & Match. All rights reserved.</p>
+        <p class="disclaimer">(Disclaimer: We take no responsibility if you miss your bus stop because you were too busy calculating sums!)</p>
+    </footer>
+
+</body>
+</html>
