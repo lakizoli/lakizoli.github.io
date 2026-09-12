@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <style>
+        /* Base Variables matching the game's theme */
+        :root {
+            --bg-body: #0d121c;         /* Deep dark background */
+            --bg-card: #161f2e;         /* Slightly lighter card background */
+            --text-main: #94a3b8;       /* Muted grey-blue text */
+            --text-bright: #e2e8f0;     /* Bright text for emphasis */
+            --accent-blue: #38bdf8;     /* Light blue for primary headings */
+            --accent-gold: #d9ad6c;     /* Gold/Tan for secondary title */
+            --border-color: #1e293b;    /* Subtle card border */
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 3rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 768px;
+            width: 100%;
+        }
+
+        /* Title Styling matching "Mathris: Sum & Match" */
+        h1 {
+            text-align: center;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        h1 .title-blue { color: var(--accent-blue); }
+        h1 .title-gold { color: var(--accent-gold); }
+
+        .last-updated {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 3rem;
+        }
+
+        /* Card container matching the "How It Works" box */
+        .policy-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro {
+            color: var(--text-bright);
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Section Headings matching the accent styling */
+        h2 {
+            color: var(--accent-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.25rem; }
+            .policy-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><span class="title-blue">Privacy</span><span class="title-gold">: Policy</span></h1>
+        <div class="last-updated">Last updated: September 9, 2026</div>
+
+        <div class="policy-card">
+            <p class="intro">This Privacy Policy describes how your personal information is collected, used, and shared when you use our mobile application ("the App").</p>
+
+            <h2>📋 Information We Collect</h2>
+            <p>We do not collect, store, or share any personal data. The App does not require you to create an account or provide any personally identifiable information.</p>
+
+            <h2>💳 In-App Purchases</h2>
+            <p>All in-app purchases are processed through Apple's App Store. We do not have access to your payment information. Payment processing is governed by Apple's privacy policy and terms of service.</p>
+
+            <h2>📢 Advertising</h2>
+            <p>The App may display advertisements provided by third-party ad networks. These networks may use device identifiers to serve relevant ads. You can limit ad tracking in your device settings.</p>
+
+            <h2>🏆 Game Data and Leaderboards</h2>
+            <p>Game progress and scores are stored locally on your device. The App utilizes Apple's native GameKit and Game Center services to provide global leaderboards. When you participate, your gameplay scores and Game Center username are processed and stored entirely by Apple. We do not collect, store, or transmit this data to any of our own servers or third parties. Your use of Game Center is subject to Apple's Privacy Policy.</p>
+
+            <h2>🛡️ Children's Privacy</h2>
+            <p>The App does not knowingly collect personal information from children under 13 years of age.</p>
+
+            <h2>🔄 Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last updated" date above.</p>
+
+            <h2>✉️ Contact Us</h2>
+            <p>If you have questions about this Privacy Policy, please contact us through the App Store support link.</p>
+        </div>
+    </div>
+
+</body>
+</html>

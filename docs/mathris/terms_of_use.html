@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use</title>
+    <style>
+        /* Base Variables matching the game's theme */
+        :root {
+            --bg-body: #0d121c;         /* Deep dark background */
+            --bg-card: #161f2e;         /* Slightly lighter card background */
+            --text-main: #94a3b8;       /* Muted grey-blue text */
+            --text-bright: #e2e8f0;     /* Bright text for emphasis */
+            --accent-blue: #38bdf8;     /* Light blue for primary headings */
+            --accent-gold: #d9ad6c;     /* Gold/Tan for secondary title */
+            --border-color: #1e293b;    /* Subtle card border */
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 3rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 768px;
+            width: 100%;
+        }
+
+        /* Title Styling matching "Mathris: Sum & Match" */
+        h1 {
+            text-align: center;
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        h1 .title-blue { color: var(--accent-blue); }
+        h1 .title-gold { color: var(--accent-gold); }
+
+        .last-updated {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 3rem;
+        }
+
+        /* Card container matching the "How It Works" box */
+        .policy-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro {
+            color: var(--text-bright);
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Section Headings matching the accent styling */
+        h2 {
+            color: var(--accent-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.25rem; }
+            .policy-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1><span class="title-blue">Terms</span><span class="title-gold">: of Use</span></h1>
+        <div class="last-updated">Last updated: September 9, 2026</div>
+
+        <div class="policy-card">
+            <p class="intro">Please read these Terms of Use carefully before using the App.</p>
+
+            <h2>✅ Acceptance of Terms</h2>
+            <p>By downloading or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+
+            <h2>🛒 In-App Purchases</h2>
+            <p>The App offers optional in-app purchases including stars, bombs, and sponges. All purchases are final and non-refundable, except as required by applicable law. Purchased items are consumable and will be depleted upon use. Please note that consumable purchases are tied to the device and cannot be restored across different devices.</p>
+
+            <h2>✨ Ad-Free Experience</h2>
+            <p>Certain purchases include a temporary ad-free experience. The duration depends on the quantity purchased: 3 items grants 1 week, 6 items grants 2 weeks, and 12 items grants 4 weeks of ad-free gameplay.</p>
+
+            <h2>🎨 Intellectual Property</h2>
+            <p>All content in the App, including graphics, sounds, and game mechanics, is owned by us and protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without permission.</p>
+
+            <h2>⚠️ Limitation of Liability</h2>
+            <p>The App is provided "as is" without warranties of any kind. We are not liable for any damages arising from your use of the App.</p>
+
+            <h2>🛑 Termination</h2>
+            <p>We reserve the right to modify or discontinue the App at any time without notice.</p>
+
+            <h2>⚖️ Governing Law</h2>
+            <p>These Terms are governed by the laws of Hungary.</p>
+
+            <h2>✉️ Contact Us</h2>
+            <p>If you have questions about these Terms, please contact us through the App Store support link.</p>
+        </div>
+    </div>
+
+</body>
+</html>
