@@ -86,6 +86,10 @@
             margin-bottom: 0;
         }
 
+        .policy-card p + p {
+            margin-top: 14px;
+        }
+
         @media (max-width: 600px) {
             .legal-main {
                 padding: 120px 0 60px;
@@ -105,7 +109,7 @@
 
             <div class="legal-header">
                 <h1>Privacy <span class="gradient-text">Policy</span></h1>
-                <p class="last-updated">Last updated: September 27, 2026</p>
+                <p class="last-updated">Last updated: October 8, 2026</p>
             </div>
 
             <div class="policy-card">
@@ -119,7 +123,11 @@
                 <p>The App does not require you to create an account, sign in, or provide any personal information to use its features.</p>
 
                 <h2>🤖 4. AI Assistant</h2>
-                <p>The App includes an on-device AI Assistant, built on Apple's on-device Foundation Models and Translation frameworks, that can suggest vocabulary corrections and translations, analyze your learning statistics, and chat with you for practice. All of this processing happens entirely on your device — your vocabulary data and chat messages are never sent to Apple's servers or any third party. Chat conversations are not saved; they are discarded as soon as you close the Assistant panel.</p>
+                <p>The App includes an AI Assistant that can suggest vocabulary corrections and translations, analyze your learning statistics, and chat with you for practice. You choose which of three backends powers the Assistant from a picker in the Assistant panel.</p>
+                <p>On-Device (the default for every user) runs entirely on your device using Apple's Foundation Models and Translation frameworks; nothing is sent to Apple's servers or any third party. Switching to either of the other two backends always requires you to select it explicitly — the App never switches backends on its own.</p>
+                <p>Apple Private Cloud Compute (iOS 27 or later) sends your chat messages and the specific vocabulary-table context needed to answer them — such as individual lookups, missing-translation lists, duplicate pairs, or statistics summaries, never your full vocabulary table — to Apple's Private Cloud Compute servers for processing, under Apple's own published privacy architecture, which Apple states is independently verifiable and does not retain your data after your request is served.</p>
+                <p>Gemini (iOS 27 or later) sends the same kind of chat messages and vocabulary-table context to Google's Gemini API, reached via Google's Firebase platform, for processing. This integration is currently offered by Google in Preview status, so its availability or behavior could change without notice. Google's own terms for this API distinguish free and paid usage tiers with different data-retention and data-use policies; please review Google's current Gemini API terms if you want the specifics, since the App does not control them.</p>
+                <p>Before the App uses either Private Cloud Compute or Gemini for the first time, it shows a one-time notice naming Apple or Google and explaining that your data will leave your device, which you must accept before that backend takes effect. Regardless of which backend is active, the Assistant never edits your vocabulary data automatically — it only proposes changes, which you must confirm before anything is applied — and chat conversations are not saved; they are discarded as soon as you close the Assistant panel. An app-side content safety filter screens Assistant input and output across all three backends; Apple's additional on-device safety guardrails apply only to the on-device backend.</p>
 
                 <h2>🌐 5. Third-Party Services</h2>
                 <p>When you use the translation features, the App loads web pages from third-party services such as Google Translate and online dictionaries directly in an embedded browser. These services may collect data according to their own privacy policies. The App itself does not send your data to these services programmatically — it only opens their web pages with your search terms.</p>
